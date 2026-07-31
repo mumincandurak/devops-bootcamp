@@ -1,0 +1,7 @@
+------------------------------------------
+Sağlık Kontrolü Başlatıldı: Fri Jul 31 17:10:55 +03 2026
+------------------------------------------
+[ERR] HTTP 301 - https://google.com
+[ERR] HTTP 503 - https://httpbin.org/status/404
+[ERR] HTTP 503 - https://httpbin.org/status/500
+------------------------------------------
