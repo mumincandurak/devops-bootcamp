@@ -1,0 +1,11 @@
+{
+  "service": "weather-api",
+  "port": 8080,
+  "env": [
+    {
+      "name": "WEATHER_API_KEY",
+      "required": true
+    }
+  ],
+  "replicas": 3
+}
