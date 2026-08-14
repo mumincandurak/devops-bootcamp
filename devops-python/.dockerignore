@@ -1,0 +1,8 @@
+.venv/          # sanal ortam — image içinde pip install ile zaten kuruluyor, taşınmasına gerek yok
+__pycache__/    # derlenmiş .pyc dosyaları, image içinde yeniden üretilir
+.pytest_cache/  # test çalıştırma önbelleği, runtime'da gereksiz
+tests/          # test kodu production image'ına gerek değil
+python_course/  # bu proje ile ilgisi yok, ayrı öğrenme klasörün
+.env            # secrets içerebilir — image'a asla gömülmemeli
+.git/           # git geçmişi, image'a hiç gerek yok
+*.pyc
