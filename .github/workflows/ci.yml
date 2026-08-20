@@ -22,5 +22,26 @@ jobs:
       - name: Run tests
         run: pytest devops-python/tests
 
-      - name: Build Docker image
-        run: docker build -t docker_test ./devops-python
+  build-and-push:
+    needs: test
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push image
+        uses: docker/build-push-action@v6
+        with:
+          context: ./devops-python
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/devops-python-api:latest
