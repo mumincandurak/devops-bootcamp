@@ -19,6 +19,9 @@ jobs:
       - name: Install dependencies
         run: pip install -r devops-python/requirements.txt
 
+      - name: Generate ML model
+        run: python devops-python/app/train.py
+
       - name: Run tests
         run: pytest devops-python/tests
 
