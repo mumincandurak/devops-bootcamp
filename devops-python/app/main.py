@@ -43,4 +43,4 @@ def sentiment(request: PredictRequest, model = Depends(get_ml_model), verbose: b
 
 @app.get("/health")
 def health_check():
-    return {"status": "okey"}
+    return {"status": "ok"}
