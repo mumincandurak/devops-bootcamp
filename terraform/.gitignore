@@ -1,0 +1,23 @@
+# Local provider plugins/binaries — re-downloaded by `terraform init`
+**/.terraform/*
+
+# State files — hold real resource IDs (and sometimes secrets), never shared via git
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Variable files often hold secrets/environment-specific values
+*.tfvars
+*.tfvars.json
+
+# Local CLI overrides
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Saved plan output (terraform plan -out=...)
+*.tfplan
