@@ -3,7 +3,7 @@ from fastapi import FastAPI , Depends , HTTPException
 from app.config import settings
 from app.model import load_ml_model, load_model
 from app.schemas import PredictRequest, PredictResponse
-
+from prometheus_fastapi_instrumentator import Instrumentator
 ml = {}
 
 def get_ml_model():
@@ -25,6 +25,8 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title=settings.app_name, lifespan=lifespan)
+
+Instrumentator().instrument(app).expose(app)
 
 
 @app.post("/models/predict", response_model=PredictResponse)
